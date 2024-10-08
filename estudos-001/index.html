@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula - javaScript 002</title>
+</head>
+<body>
+    
+   <h1>Operador de comparação</h1>
+
+   <form id="dados">
+        
+       <label for="idade"> Idade: </label>
+       <input type="text" name="idade" id="idade" required>
+       <button type="submit"> Enviar </button>
+
+   </form>
+
+     <p id="result"></p>
+
+
+    <script>
+
+         document.getElementById("dados").addEventListener("submit", function(event) {
+
+         event.preventDefault();
+
+         var idade = document.getElementById("idade").value;
+
+         var resultado = (idade     >= 18)? "sim": "nao"; 
+
+         document.getElementById("result").innerText= resultado
+
+         });
+       
+         
+         
+        
+         
+
+
+
+        
+      
+
+    </script>
+
+</body>
+</html>

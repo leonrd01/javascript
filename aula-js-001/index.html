@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula - JavaScript 001</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     
+    <div class="center">
+        <h1> Aula 001 </h1>
+    </div>
+    <hr>
+
+    <div class="container">
+        <div class="bloco">
+            <h3>Clique no botão abaixo se quiser saber Informações do aluno</h3>
+            <p id="info"></p>
+            <button onclick="MostrarInformaçoes()"> Mostrar Informações </button>
+        </div>
+        <div class="bloco">
+            <h3>escolha qual o operador para realizar o calculo de 135 e 485</h3>
+            <p id="soma"></p>
+            <p id="Div"></p>
+            <p id="Sub"></p>
+            <button onclick="ResultSoma()"> + </button>
+            <button onclick="ResultDiv()"> / </button>
+            <button onclick="ResultSub()"> - </button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script>
+
+        let nome = "Leonardo Pinho";
+        let idade = 22;
+        let corfav = "preto";
+        let hobby = "Jogar";
+       
+
+        function MostrarInformaçoes(){
+            
+            document.getElementById("info").innerHTML=
+            "<b>Qual é o seu nome:</b> " + nome + "<br>" + 
+            "<b>Qual é a sua idade:</b> " + idade + "<br>" +
+            "<b>Qual é a sua cor favorita:</b> " + corfav + "<br>" +
+            "<b>Qual é o seu hobby ou atividade preferida:</b> " + hobby + "<br>" 
+
+        }
+
+        function ResultSoma(){
+
+            let a = 135, b = 485;
+            let result = a + b;
+            document.getElementById("soma").innerHTML=
+            "<b>O resultado de 135 + 485 é: </b>" + result
+
+        }
+
+        function ResultDiv(){
+
+            let a = 135, b = 485;
+            let result = a / b;
+            document.getElementById("Div").innerHTML=
+            "<b>O resultado de 135 / 485 é: </b>" + result
+
+        }
+
+        function ResultSub(){
+
+            let a = 135, b = 485;
+            let result = a - b;
+            document.getElementById("Sub").innerHTML=
+            "<b>O resultado de 135 - 485 é: </b>" + result
+
+        }
+
+    </script>
+</body>
+</html>

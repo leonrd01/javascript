@@ -1,0 +1,36 @@
+.bloco{
+    background-color: rgb(229, 223, 223);
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    margin: auto;
+    padding: 20px;
+    width: 261px;
+
+}
+
+label{
+    display: block;
+}
+
+button{
+    display: block;
+    margin-top: 30px;
+}
+
+.camp{
+    margin: 20px;
+}
+
+h3{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 20px;
+}
+
+input{
+    width: 210px;
+}
+
+.aviso{
+    font-size: 11px;
+    color: red;
+}

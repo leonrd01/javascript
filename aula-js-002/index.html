@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula - javaScript 002</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+   <div class="titulo">
+         <h1>Operador de comparação</h1>
+   </div>
+
+   <div class="bloco">
+            <form id="dados">
+            
+                <label for="numero1"> Numero 1: </label>
+                <input type="number" name="numero1" id="numero1" required><br>
+                <label for="numero2"> Numero 2:  </label>
+                <input type="number" name="numero2" id="numero2">
+                <br>
+
+                <button type="submit" class="botao"> Enviar </button>
+            </form>
+
+         <p id="result"></p>
+   </div>
+
+     
+
+
+    <script>
+
+         document.getElementById("dados").addEventListener("submit", function(event) {
+
+         event.preventDefault();
+
+         var numero1 = parseFloat(document.getElementById("numero1").value);
+         var numero2 = parseFloat(document.getElementById("numero2").value);
+
+         var resultado = (numero1 < numero2)? "O Número " +numero1+ " é Menor que o Número " +numero2 : 
+                         (numero1 > numero2)? "O Número " +numero1+ " é Maior que o Número " +numero2 :
+                         "O Número " +numero1+ " é Igual ao Número " +numero2;   
+         
+         
+
+         document.getElementById("result").innerText= resultado
+
+         });
+       
+         
+        
+    </script>
+
+</body>
+</html>

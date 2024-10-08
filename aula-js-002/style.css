@@ -1,0 +1,18 @@
+.titulo{
+    text-align: center;
+}
+
+.bloco{
+
+    border: 1px solid #ccc; /* Borda para visualização */
+    border-radius: 10px;     /* Cantos arredondados */
+    padding: 20px;          /* Espaço interno */
+    width: 300px;           /* Largura do formulário */
+    margin: auto;           /* Centraliza o formulário na página */
+    background-color: #f9f9f9; /* Cor de fundo */
+    
+}
+
+.botao{
+    margin-top: 30px;
+}

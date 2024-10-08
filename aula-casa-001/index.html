@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bloco">
+        <h3>Cadastrar</h3>
+        
+        <form>
+
+            <div class="camp">
+                <label for="nome"> Nome </label>
+                <input type="text" id="nome" name="nome">
+            </div>
+
+            <div class="camp">
+                <label for="sobrenome"> Sobrenome </label>
+                <input type="text" name="sobrenome" id="sobrenome">
+            </div>
+
+            <div class="camp">
+                <label for="senha"> Senha </label>
+                <input type="password" name="senha" id="senha">
+            </div>
+
+            <p id="cad" class="aviso"></p>
+
+            <button onclick="Cadastro()"> Enviar </button>
+
+        </form>
+    </div>
+
+    <script>
+
+        function Cadastro(){
+
+            event.preventDefault();
+            
+            var senha = document.getElementById("senha").value;
+
+            if(senha == "8328"){
+                document.getElementById("cad").innerText= "A senha '" +senha+ "'' ja está sendo usada pelo user 'PaulaTejando'"
+            }
+
+        }
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
