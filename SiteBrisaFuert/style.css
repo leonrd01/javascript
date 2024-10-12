@@ -1,0 +1,248 @@
+body{
+    margin: 0;
+}
+
+.carrinho{
+    position: relative;
+    top: 60px;
+    left: 80px;
+}
+
+
+.traçoVert01{
+    background-color: black;
+    width: 1px;
+    height: 50px;
+    opacity: 30%;
+    margin-top: 52px;
+    
+}
+
+
+.traçoVert02{
+    background-color: black;
+    width: 1px;
+    height: 40px;
+   
+}
+
+
+.traçoVert03{
+    background-color: black;
+    width: 1px;
+    height: 40px;
+    
+}
+
+.traçoHori{
+    border: 5px;
+    width: auto;
+    height: 1px;
+    background-color: rgb(185, 185, 185);
+    
+}
+
+
+.BackTop{
+    background-color: black;
+    height: 40px;
+    width: auto;
+   
+}
+
+
+.BarraTop{
+    display: flex;
+    justify-content: space-between;
+    transform: translate(0px, -46px); /* Move 10px para a direita e 20px para baixo */
+    color: aliceblue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    opacity: 50%;
+    width: auto;
+    margin-left: 30px;
+    margin-right: 30px;
+    
+    
+}
+
+
+.BackTop02{
+    display: flex;   
+    background-color: rgb(50, 50, 50);
+    height: 150px;
+    width: auto;
+    margin-top: -52px;
+}
+
+.BackCate{
+    padding-top: 20px;
+    padding-left: 100px;
+    background-color: rgb(50, 50, 50);
+    height: 40px;
+    width: auto;
+    
+
+
+}
+
+
+.pesq{
+    padding-left: 10px;
+    border-radius: 5px;
+    width: 450px;
+    height: 30px; 
+    margin-top: 60px;
+    margin-left: 50px;
+    min-width: 200px;
+    
+}
+
+
+.navsTop{
+    display: flex;
+    gap: 70px;
+    color: darkblue;
+    margin-left: 120px;
+    margin-top: 68px;
+    font-size: 15px;
+}
+
+
+.navsTop > a {
+    text-decoration: none;
+    color: aliceblue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ;
+    margin: 0;
+}
+
+
+.Logo{
+    
+    height: 200px;
+    margin-right: 50px;
+    margin-top: -22px;
+    margin-left: 50px;
+
+
+}
+
+.navsCate{
+    display: flex;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+    gap: 100px;
+    
+}
+
+.navsCate > a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+a:hover{
+    color: brown;
+}
+
+.promo{
+    margin: auto;
+    margin-top: 20px;
+    padding-left: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); 
+    border-radius: 15px;
+    height: 430px;
+    width: 1450px;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #eaeaea;;
+    
+}
+
+.container {
+    display: flex; /* Habilita o Flexbox */
+    justify-content: space-between; /* Distribui as caixas com espaço entre elas */
+    align-items: center; /* Alinha os itens ao centro verticalmente */
+    padding: 20px;
+    
+    
+}
+
+.itens{
+    border: 1px solid #ddd;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); 
+    border-radius: 15px;
+    height: 330px;
+    width: 250px;
+    background-color: white;
+}
+
+.itens > img{
+    margin-left: 10px;
+    border-radius: 20px;
+    
+}
+
+.itens > p{
+     font-size: 13px;
+     opacity: 70%;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+     margin-left: 30px;
+     margin-top: -15px;
+     
+}
+
+.itens > h4{
+    margin-left: 90px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Responsividade das promo */
+@media (max-width: 1100px){ 
+    .BarraTop{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 820px){
+    .BarraTop{
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 735px){
+    .BarraTop{
+        font-size: 9px;
+    }
+}
+/*---------------------------*/
+
+@media (max-width: 625px){
+    .Logo{
+        
+        margin-left: 10px;
+        height: 150px;
+        width: 150px;
+    }
+
+    .BackTop02{
+        height: 100px;
+        padding-top: 0.1px;
+        
+    }
+
+    .pesq{
+        height: 25px;
+        margin-top: 32px;
+        margin-left: -100px;
+    }
+
+    
+}
+
+
+
+
+
+
+
+

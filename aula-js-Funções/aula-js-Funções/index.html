@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula - JavaScript - Funções</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     
+    <div class="center">
+        <h1> Funções </h1>
+    </div>
+    <hr>
+
+        <div class="bloco">
+            <h3> Calculadora</h3>
+           
+                <form id="calc">
+                
+                    <label for="numero1"> Numero 1: </label>
+                    <input type="number" name="numero1" id="numero1" required>
+                    <br>
+                    <label for="numero2"> Numero 2:  </label>
+                    <input type="number" name="numero2" id="numero2" required>
+                    <br>
+                    
+                    <p id="soma"></p>
+                    <p id="Div"></p>
+                    <p id="Sub"></p>
+                    <p id="Mult"></p>
+
+                    <div class="botao">
+                        <button onclick="ResultSoma()"> + </button>
+                        <button onclick="ResultDiv()"> / </button>
+                        <button onclick="ResultSub()"> - </button>
+                        <button onclick="ResultMult()"> * </button>
+                    </div>
+    
+                </form>
+        </div>
+
+        <div class="bloco">
+            <h3> Par ou Ímpar </h3>
+
+                <form id="PouI">
+
+                    <label for="numero"> Número: </label>
+                    <input type="number" name="numero" id="numero">
+                    <p id="PouI"></p>
+
+                    <button onclick="ParouImpar()"> Verificar </button>
+
+                </form>
+        </div>
+
+        <div class="bloco">
+            <h3> Verificar Idade </h3>
+
+                <form id="Idade">
+
+                    <label for="ano"> Ano de Nascimento: </label>
+                    <input type="number" name="ano" id="ano">
+                    <p id="VerifIdade"></p>
+
+                    <button onclick="CalcularIdade()"> Calcular </button>
+                </form>
+
+        </div>
+   
+
+
+
+
+
+
+
+    <script>
+
+        function ResultSoma(){
+
+            event.preventDefault();
+
+            var numero1 = parseFloat(document.getElementById("numero1").value);
+            var numero2 = parseFloat(document.getElementById("numero2").value);
+
+            var resultado = numero1 + numero2;   
+
+
+
+            document.getElementById("soma").innerText= "O resultado da soma é: " +resultado
+
+        }
+
+        function ResultDiv(){
+
+            
+            event.preventDefault();
+
+            var numero1 = parseFloat(document.getElementById("numero1").value);
+            var numero2 = parseFloat(document.getElementById("numero2").value);
+
+            var resultado = numero1 / numero2;   
+
+
+
+            document.getElementById("Div").innerText= "O resultado da Divisão é: " +resultado
+
+        }
+
+        function ResultSub(){
+
+           
+            event.preventDefault();
+
+            var numero1 = parseFloat(document.getElementById("numero1").value);
+            var numero2 = parseFloat(document.getElementById("numero2").value);
+
+            var resultado = numero1 - numero2;   
+
+
+
+            document.getElementById("Sub").innerText= "O resultado da Subtração é: " +resultado
+
+        }
+
+        function ResultMult(){
+
+           
+            event.preventDefault();
+
+            var numero1 = parseFloat(document.getElementById("numero1").value);
+            var numero2 = parseFloat(document.getElementById("numero2").value);
+
+            var resultado = numero1 * numero2;   
+
+
+
+            document.getElementById("Mult").innerText= "O resultado da Multiplicação é: " +resultado
+
+        }
+
+        
+        function ParouImpar(){
+           
+
+
+            event.preventDefault();
+
+            var numero = parseFloat(document.getElementById("numero").value);
+
+            var resultado = (numero % 2 == 0)? "O número é Par!":"O número é Ímpar!";
+
+            document.getElementById("PouI").innerText= resultado;
+
+         
+        }
+
+        function CalcularIdade(){
+
+            event.preventDefault();
+
+            var ano = parseFloat(document.getElementById("ano").value);
+
+            var resultado =  new Date().getFullYear() - ano;
+
+            document.getElementById("VerifIdade").innerText = "Sua idade é: " +resultado;
+        }
+
+    </script>
+</body>
+</html>

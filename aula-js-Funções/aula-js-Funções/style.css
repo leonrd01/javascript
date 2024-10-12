@@ -1,0 +1,29 @@
+.center{
+    text-align: center;
+}
+
+
+.container {
+    display: flex;
+    gap: 20px; /* Espaçamento entre os itens */
+    position: relative; /* ou absolute, fixed, etc. */
+    top: 10px; /* Ajuste o valor conforme necessário */ 
+}
+
+.bloco{
+
+    border: 1px solid #ccc; /* Borda para visualização */
+    border-radius: 10px;     /* Cantos arredondados */
+    padding: 20px;          /* Espaço interno */
+    width: 300px;           /* Largura do formulário */
+    margin: auto;           /* Centraliza o formulário na página */
+    background-color: #f9f9f9; /* Cor de fundo */
+    
+    
+}
+
+.botao {
+    display: inline-block; /* Faz com que os botões fiquem lado a lado */
+    width: auto;          /* Define a largura para auto */
+    margin: 10px;        /* Adiciona espaço entre os botões */
+}

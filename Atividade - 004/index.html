@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   
+        <div class="center">
+            <div class="um">
+            
+                <label for="nome">Por favor, informe seu nome</label>
+                <input type="text" name="nome" id="nome">
+                <button onclick="saudacao()">button</button>
+                <p id="saudacao"></p>
+            
+            </div>
+            
+            <div class="um">
+                <p>Calculadora:</p>
+                <p>Determine os valores para as variáveis e selecione a operação.</p>
+                <label for="a">A:</label>
+                <input type="number" name="a" id="a" required>
+                <br>
+                <label for="b">B:</label>
+                <input type="number" name="b" id="b" required>
+                <br>
+                <button onclick="calcularSoma()">+</button>
+                <button onclick="calcularSub()">-</button>
+                <button onclick="calcularDiv()">/</button>
+                <button onclick="calcularMulti()">x</button>
+                <p id="resultado"></p>
+            </div>
+            
+            
+            
+            <div class="um">
+                <label for="idade">Por favor, informe sua idade</label>
+                <input type="number" name="idade" id="idade">
+                <button onclick="Idade()">button</button>
+                <p id="ResultIdade"></p>
+            </div>
+            
+            <div class="um">
+             <label for="n1"> Informe o primeiro número</label>
+             <input type="number" name="=n1" id="n1">
+             <br>
+             <label for="n2"> Informe o segundo número</label>
+             <input type="number" name="=n2" id="n2">
+             <button onclick="compararr()">comparar</button>
+             <p id="comparar"></p>
+            
+            </div>
+        </div>
+        
+    <script src="index.js"></script>
+
+</body>
+</html>
