@@ -129,48 +129,55 @@
     <script>
 
 
-  let display = document.getElementById('displayOperacao');
+        let display = document.getElementById('displayOperacao');
 
-  function ExibirOperacao(operacao) {
-    if (display.innerHTML === '0') {
-      display.innerHTML = operacao;
-    } else {
-      switch (operacao) {
-        case '+': case '-': case '*': case '/':
-          if (!/[+\-*/]$/.test(display.innerHTML)) {
-            display.innerHTML += operacao;
-          }
-          break;
-        case '.':
-          if (!display.innerHTML.includes('.')) {
-            display.innerHTML += '.';
-          }
-          break;
-        default:
-          display.innerHTML += operacao;
-          break;
-      }
-    }
-  }
+        function ExibirOperacao(operacao) {
 
-  function LimparDisplay() {
-    display.innerHTML = '0';
-  }
+                if (display.innerHTML === '0') {
 
-  function calcular() {
-        const expr = display.innerHTML;
-        try {
-        const fn = new Function(`return ${expr};`);
-        const resultado = fn();
-        display.innerHTML = resultado;
-        } catch (e) {
-        display.innerHTML = 'Erro';
-        }
-  }
+                    display.innerHTML = operacao; // Se o visor estiver zerado, substitui o valor por 'operacao'.
 
+                } else {
 
+                    switch (operacao) {
 
-        
+                        case '+': case '-': case '*': case '/':
+                
+                            if (!/[+\-*/]$/.test(display.innerHTML)) { //  retorna true se o conteúdo atual do visor terminar com um desses símbolos.
+                                display.innerHTML += operacao;
+                            }
+
+                        break;
+
+                            case '.':
+                                if (!display.innerHTML.includes('.')) {
+                                    display.innerHTML += '.';
+                                }
+                            break;
+
+                                default:
+                                    display.innerHTML += operacao;
+                                break;
+
+                    }
+                }
+            }
+
+            function LimparDisplay() {
+                display.innerHTML = '0';
+            }
+
+            function calcular() {
+                const expr = display.innerHTML;
+                try {
+                    const fn = new Function(`return ${expr};`); // Cria uma função a partir da expressão e retorna o resultado
+                    const resultado = fn();
+                    display.innerHTML = resultado;
+                } catch (e) {
+                    display.innerHTML = 'Erro';
+                }
+            }
+
     </script>
 </body>
 </html>
