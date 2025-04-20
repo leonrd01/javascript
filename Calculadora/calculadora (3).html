@@ -161,7 +161,7 @@
 
                     }
                 }
-            }
+        }
 
             function LimparDisplay() {
                 display.innerHTML = '0';
@@ -172,9 +172,17 @@
                 try {
                     const fn = new Function(`return ${expr};`); // Cria uma função a partir da expressão e retorna o resultado
                     const resultado = fn();
+                    if (resultado === Infinity) {
+                        throw new RangeError(); // Lança um erro se o resultado for infinito
+                        return;
+                    }
                     display.innerHTML = resultado;
+
                 } catch (e) {
-                    display.innerHTML = 'Erro';
+                    if(e instanceof RangeError){
+                        display.innerHTML = 'inválido divisão por zero'; // Exibe mensagem de erro se o resultado for muito grande
+                    }
+                    
                 }
             }
 
