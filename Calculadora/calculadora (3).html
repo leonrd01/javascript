@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Científica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F5F5F5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .calculator {
+            background-color: #333333;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            padding: 20px;
+        }
+        
+        .display-container {
+            background-color: #FFFFFF;
+            border: 2px solid #DDDDDD;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        
+        .operation {
+            font-size: 16px;
+            color: #777777;
+            height: 20px;
+            overflow: hidden;
+        }
+        
+        .result {
+            font-size: 24px;
+            height: 30px;
+            overflow: hidden;
+            color: #FF0000; /* Vermelho para mensagens de erro */
+            
+        }
+        
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        
+        button {
+            background-color: #FF6B00;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        button:hover {
+            background-color: #E55F00;
+        }
+        
+        button.operator {
+            background-color: #555555;
+        }
+        
+        button.operator:hover {
+            background-color: #444444;
+        }
+        
+        button.clear {
+            background-color: #777777;
+        }
+        
+        button.clear:hover {
+            background-color: #666666;
+        }
+        
+        button.equals {
+            background-color: #FF6B00;
+            grid-column: span 2;
+        }
+        
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display-container">
+            <div class="result" id="displayOperacao">0</div>
+        </div>
+        <div class="buttons">
+            <button class="clear" onclick="LimparDisplay()">C</button>
+            <button class="operator" onclick="ExibirOperacao('/')">/</button>
+            <button class="operator" onclick="ExibirOperacao('*')">×</button>
+            <button class="operator" onclick="ExibirOperacao('-')">-</button>
+            <button onclick="ExibirOperacao('7')">7</button>
+            <button onclick="ExibirOperacao('8')">8</button>
+            <button onclick="ExibirOperacao('9')">9</button>
+            <button class="operator" onclick="ExibirOperacao('+')">+</button>
+            <button onclick="ExibirOperacao('4')">4</button>
+            <button onclick="ExibirOperacao('5')">5</button>
+            <button onclick="ExibirOperacao('6')">6</button>
+            <button onclick="ExibirOperacao('.')">.</button>
+            <button onclick="ExibirOperacao('1')">1</button>
+            <button onclick="ExibirOperacao('2')">2</button>
+            <button onclick="ExibirOperacao('3')">3</button>
+            <button onclick="ExibirOperacao('0')">0</button>
+            <button class="equals" onclick="calcular()" style="position: relative; left: 155px;">=</button>
+        </div>
+        <footer>
+            Desenvolvido por Tárcio Caetano, Léo Pinho, Léo Neves e Brisa Nzinga
+        </footer>
+    </div>
+
+    <script>
+
+        let primeiroValor = null;
+        let segundoValor = null;
+        let op = null;
+        let display = document.getElementById('displayOperacao');
+
+        
+        /// Função para adicionar números ao display
+        function ExibirOperacao(operacao) {
+
+             
+
+             
+
+            /// Verifica se o display já contém um número ou se é zero
+            if (display.innerHTML === '0') {
+                 
+                 display.innerHTML = operacao;
+
+            } else {
+
+                switch (operacao)
+                 {
+                    case '+':
+                        
+                         VerificarPrimeiroValor(operacao);
+                         op = operacao; // Armazena o operador atual
+                         display.innerHTML += operacao;
+                        
+                    break;
+
+                        case '-':
+                             
+                             VerificarPrimeiroValor(operacao);
+                             op = operacao; // Armazena o operador atual
+                             display.innerHTML += operacao;
+                            
+                        break;  
+
+                            case '*':
+                                 
+                                 VerificarPrimeiroValor(operacao);
+                                 op = operacao; // Armazena o operador atual
+                                 display.innerHTML += operacao;
+                                
+                            break;
+
+                                case '/':
+                                     
+                                     VerificarPrimeiroValor(operacao);
+                                     op = operacao; // Armazena o operador atual
+                                     display.innerHTML += operacao;
+                                    
+                                break;
+
+                                    case '.':
+
+                                         let valor = display.innerHTML;
+
+                                         // Verifica se o valor já contém um ponto decimal
+                                         if (valor.includes('.')) {
+
+                                             return; // Não adiciona outro ponto decimal se já houver um
+
+                                        } else {
+
+                                             display.innerHTML += '.';
+                                             return; // Retorna após adicionar o ponto decimal
+
+                                        }
+
+                                    break;
+
+                                          
+                                            default:
+
+                                               display.innerHTML += operacao; 
+
+                                            break;
+
+                                    
+                                            
+                        
+                }
+                
+                
+
+                
+                
+
+            }
+            
+             
+            
+           
+
+    
+        }
+        
+        // Função para limpar o display
+        function LimparDisplay() {
+            document.getElementById('displayOperacao').innerHTML = '0';
+        }
+
+
+        function VerificarPrimeiroValor(operador) {
+
+            let display = document.getElementById('displayOperacao');
+
+            // Verifica se o último caractere do display é um operador
+            if (display.innerHTML.slice(-1) === '+' || display.innerHTML.slice(-1) === '-' || display.innerHTML.slice(-1) === '*' || display.innerHTML.slice(-1) === '/') {
+                return; // Não adiciona outro operador se já houver um
+            } else {
+
+                // verifica se o primeiro valor já foi definido
+                if (primeiroValor === null) {
+
+                    primeiroValor = Number(display.innerHTML); // Converte o valor para número   
+                    
+                } else if (segundoValor === null) {
+
+                    segundoValor = Number(display.innerHTML); // Converte o valor para número
+
+                } else {
+
+                    // Se o primeiro valor já foi definido, atualiza o segundo valor
+                    segundoValor = Number(display.innerHTML); // Converte o valor para número
+
+                }
+
+
+            }
+
+            
+        }
+        
+        
+        function calcular() {
+
+           
+            const fn = new Function(
+                "x",               // nome do primeiro parâmetro
+                "y",               // nome do segundo parâmetro
+                `return x ${op} y;`// corpo da função
+            );  
+
+            const resultado = fn(primeiroValor, segundoValor); // Chama a função com os valores armazenados
+            display.innerHTML = resultado;
+
+        }
+
+        
+           
+
+
+        
+    </script>
+</body>
+</html>
