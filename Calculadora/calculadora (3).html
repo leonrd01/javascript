@@ -128,158 +128,46 @@
 
     <script>
 
-        let primeiroValor = null;
-        let segundoValor = null;
-        let op = null;
-        let display = document.getElementById('displayOperacao');
 
-        
-        /// Função para adicionar números ao display
-        function ExibirOperacao(operacao) {
+  let display = document.getElementById('displayOperacao');
 
-             
+  function ExibirOperacao(operacao) {
+    if (display.innerHTML === '0') {
+      display.innerHTML = operacao;
+    } else {
+      switch (operacao) {
+        case '+': case '-': case '*': case '/':
+          if (!/[+\-*/]$/.test(display.innerHTML)) {
+            display.innerHTML += operacao;
+          }
+          break;
+        case '.':
+          if (!display.innerHTML.includes('.')) {
+            display.innerHTML += '.';
+          }
+          break;
+        default:
+          display.innerHTML += operacao;
+          break;
+      }
+    }
+  }
 
-             
+  function LimparDisplay() {
+    display.innerHTML = '0';
+  }
 
-            /// Verifica se o display já contém um número ou se é zero
-            if (display.innerHTML === '0') {
-                 
-                 display.innerHTML = operacao;
-
-            } else {
-
-                switch (operacao)
-                 {
-                    case '+':
-                        
-                         VerificarPrimeiroValor(operacao);
-                         op = operacao; // Armazena o operador atual
-                         display.innerHTML += operacao;
-                        
-                    break;
-
-                        case '-':
-                             
-                             VerificarPrimeiroValor(operacao);
-                             op = operacao; // Armazena o operador atual
-                             display.innerHTML += operacao;
-                            
-                        break;  
-
-                            case '*':
-                                 
-                                 VerificarPrimeiroValor(operacao);
-                                 op = operacao; // Armazena o operador atual
-                                 display.innerHTML += operacao;
-                                
-                            break;
-
-                                case '/':
-                                     
-                                     VerificarPrimeiroValor(operacao);
-                                     op = operacao; // Armazena o operador atual
-                                     display.innerHTML += operacao;
-                                    
-                                break;
-
-                                    case '.':
-
-                                         let valor = display.innerHTML;
-
-                                         // Verifica se o valor já contém um ponto decimal
-                                         if (valor.includes('.')) {
-
-                                             return; // Não adiciona outro ponto decimal se já houver um
-
-                                        } else {
-
-                                             display.innerHTML += '.';
-                                             return; // Retorna após adicionar o ponto decimal
-
-                                        }
-
-                                    break;
-
-                                          
-                                            default:
-
-                                               display.innerHTML += operacao; 
-
-                                            break;
-
-                                    
-                                            
-                        
-                }
-                
-                
-
-                
-                
-
-            }
-            
-             
-            
-           
-
-    
+  function calcular() {
+        const expr = display.innerHTML;
+        try {
+        const fn = new Function(`return ${expr};`);
+        const resultado = fn();
+        display.innerHTML = resultado;
+        } catch (e) {
+        display.innerHTML = 'Erro';
         }
-        
-        // Função para limpar o display
-        function LimparDisplay() {
-            document.getElementById('displayOperacao').innerHTML = '0';
-        }
+  }
 
-
-        function VerificarPrimeiroValor(operador) {
-
-            let display = document.getElementById('displayOperacao');
-
-            // Verifica se o último caractere do display é um operador
-            if (display.innerHTML.slice(-1) === '+' || display.innerHTML.slice(-1) === '-' || display.innerHTML.slice(-1) === '*' || display.innerHTML.slice(-1) === '/') {
-                return; // Não adiciona outro operador se já houver um
-            } else {
-
-                // verifica se o primeiro valor já foi definido
-                if (primeiroValor === null) {
-
-                    primeiroValor = Number(display.innerHTML); // Converte o valor para número   
-                    
-                } else if (segundoValor === null) {
-
-                    segundoValor = Number(display.innerHTML); // Converte o valor para número
-
-                } else {
-
-                    // Se o primeiro valor já foi definido, atualiza o segundo valor
-                    segundoValor = Number(display.innerHTML); // Converte o valor para número
-
-                }
-
-
-            }
-
-            
-        }
-        
-        
-        function calcular() {
-
-           
-            const fn = new Function(
-                "x",               // nome do primeiro parâmetro
-                "y",               // nome do segundo parâmetro
-                `return x ${op} y;`// corpo da função
-            );  
-
-            const resultado = fn(primeiroValor, segundoValor); // Chama a função com os valores armazenados
-            display.innerHTML = resultado;
-
-        }
-
-        
-           
 
 
         
