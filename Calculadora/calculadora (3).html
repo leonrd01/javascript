@@ -17,7 +17,7 @@
         
          /*conteiner da calculadora*/
         .calculator {
-            background-color: #333333;
+            background-color: #3f3f3f;
             border-radius: 18px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             width: 270px;
@@ -42,7 +42,7 @@
         }
         
         .result {
-            font-size: 30px;
+            font-size: 22px;
             height: 30px;
             overflow: hidden;
             color: #fafafa; /* Vermelho para mensagens de erro */
@@ -56,7 +56,7 @@
         }
         
         button {
-            background-color: #5c5b5b;
+            background-color: #6d6c6c;
             color: #FFFFFF;
             border: none;
             border-radius: 5px;
@@ -67,7 +67,7 @@
         }
         
         button:hover {
-            background-color: #434343;
+            background-color: #565555;
         }
         
         button.operator {
@@ -75,7 +75,7 @@
         }
         
         button.operator:hover {
-            background-color: #6a0f43cf;
+            background-color: #841855f6;
         }
         
 
@@ -85,17 +85,18 @@
         }
         
         button.clear:hover {
-            background-color: #aa196bcf;
+            background-color: #be1e79cf;
         }
         
          /*botão colorido*/
         button.equals {
-            background-color: #f42198cf;
-            grid-column: span 2;
+            background-color: #ea2092cf;
+            grid-column: span 4
+            ;
         }
 
         button.equals:hover {
-            background-color: #aa196bcf;
+            background-color: #ba1c75cf;
         }
         
          /*mensagem desenvolvido*/
@@ -105,6 +106,18 @@
             color: #faf6f6;
             font-size: 12px;
         }
+
+        .virg{
+            background-color: #363636;
+            font-weight: bold;
+
+        }
+
+        button.virg:hover {
+            background-color: #2e2d2dcf;
+        }
+
+
     </style>
 </head>
 <body>
@@ -124,19 +137,53 @@
             <button onclick="ExibirOperacao('4')">4</button>
             <button onclick="ExibirOperacao('5')">5</button>
             <button onclick="ExibirOperacao('6')">6</button>
-            <button onclick="ExibirOperacao('.')">.</button>
+            <button class="virg" onclick="ExibirOperacao('.')">.</button>
             <button onclick="ExibirOperacao('1')">1</button>
             <button onclick="ExibirOperacao('2')">2</button>
             <button onclick="ExibirOperacao('3')">3</button>
-            <button class="equals" onclick="calcular()" style="position: relative; left: 155px;">=</button>
-            <button onclick="ExibirOperacao('0')"  style="position: relative; right: 140px;">0</button>
+            <button onclick="ExibirOperacao('0')" >0</button>
+            <button class="equals" onclick="calcular()">=</button>
+           
         </div>
         <footer>
             Desenvolvido por Tárcio Caetano, Léo Pinho, Léo Neves e Brisa Nzinga
         </footer>
     </div>
 
-    <script>
+    <script> 
+
+        // Função para exibir a operação no visor
+        document.addEventListener('keydown', function(event) {
+
+            const tecla = event.key; // Captura a tecla pressionada
+            if (!isNaN(tecla)) {
+
+                // Teclas numéricas (0-9)
+                ExibirOperacao(tecla);
+
+            } else if (['+', '-', '*', '/'].includes(tecla)) {
+                // Operadores
+                ExibirOperacao(tecla);
+            } else if (tecla === 'Enter') {
+                // Enter para calcular
+                calcular();
+            } else if (tecla === 'Backspace') {
+                // Apaga o último caractere
+                let atual = display.innerHTML;
+                if (atual.length > 1) {
+                    display.innerHTML = atual.slice(0, -1);
+                } else {
+                    display.innerHTML = '0';
+                }
+            } else if (tecla === 'c' || tecla === 'C') {
+                // Tecla "C" limpa o display
+                LimparDisplay();
+            } else if (tecla === '.' || tecla === ',') {
+                // Ponto ou vírgula para decimal
+                ExibirOperacao('.');
+            }
+        });
+
 
 
         let display = document.getElementById('displayOperacao');
@@ -178,10 +225,20 @@
             }
 
             function calcular() {
-                const expr = display.innerHTML;
+                
                 try {
+
+                    const expr = display.innerHTML; // Obtém a expressão atual do visor
+
+                    // testa se a expressão contem apenas números e operadores válidos 
+                    if(display.innerHTML.match(/[^0-9+\-*/.]/)){
+                        throw new SyntaxError(); // Lança um erro se a expressão contiver caracteres inválidos
+                        return;
+                    } 
+
                     const fn = new Function(`return ${expr};`); // Cria uma função a partir da expressão e retorna o resultado
                     const resultado = fn();
+
                     if (resultado === Infinity) {
                         throw new RangeError(); // Lança um erro se o resultado for infinito
                         return;
@@ -189,10 +246,14 @@
                     display.innerHTML = resultado;
 
                 } catch (e) {
+
                     if(e instanceof RangeError){
-                        display.innerHTML = 'inválido divisão por zero'; // Exibe mensagem de erro se o resultado for muito grande
+                        display.innerHTML = 'Erro divisão por zero'; // Exibe mensagem de erro se o resultado for muito grande
                     }
-                    
+                    else if(e instanceof SyntaxError){
+                        display.innerHTML = 'Entrada Inválida'; // Exibe mensagem de erro se a expressão for inválida
+                    }
+                
                 }
             }
 
